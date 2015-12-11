@@ -5,14 +5,18 @@ public class PlayerMovement : MonoBehaviour
 {
 	private Vector3 movementVector;
 	private CharacterController characterController;
-	
+
+    private float speed;
 	private float movementSpeed = 8;
+    private float runSpeed = 25;
 	private float jumpPower = 15;
 	private float gravity = 40;
+    private float minSensitivity = 0.1f;
 	
 	void Start()
 	{
 		characterController = GetComponent<CharacterController>();
+        speed = movementSpeed;
 	}
 	
 	void Update()
@@ -22,17 +26,17 @@ public class PlayerMovement : MonoBehaviour
 	}
 
     void Movement() {
-        if (Input.GetAxisRaw("LeftJoystickX") > 0.1 || Input.GetAxisRaw("LeftJoystickX") < -0.1)
+        if (Input.GetAxisRaw("LeftJoystickX") > minSensitivity || Input.GetAxisRaw("LeftJoystickX") < -minSensitivity)
         {
-            movementVector.x = Input.GetAxis("LeftJoystickX") * movementSpeed;
+            movementVector.x = Input.GetAxis("LeftJoystickX") * speed;
         }
         else
         {
             movementVector.x = 0;
         }
-        if (Input.GetAxisRaw("LeftJoystickY") > 0.1 || Input.GetAxisRaw("LeftJoystickY") < -0.1)
+        if (Input.GetAxisRaw("LeftJoystickY") > minSensitivity || Input.GetAxisRaw("LeftJoystickY") < -minSensitivity)
         {
-            movementVector.z = Input.GetAxis("LeftJoystickY") * movementSpeed;
+            movementVector.z = Input.GetAxis("LeftJoystickY") * speed;
         }
         else
         {
@@ -61,6 +65,15 @@ public class PlayerMovement : MonoBehaviour
             if (Input.GetButtonDown("Y"))
             {
                 Debug.Log("Player.cs: Y");
+            }
+            if (Input.GetButtonDown("LeftStickClick"))
+            {
+               speed = runSpeed;
+               Debug.Log("Player.cs: LeftStickClick");
+            }
+            else if (Input.GetButtonUp("LeftStickClick"))
+            {
+               speed = movementSpeed;
             }
         }
 
