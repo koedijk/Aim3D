@@ -8,10 +8,12 @@ public class PlayerMovement : MonoBehaviour
 
     private float speed;
 	private float movementSpeed = 8;
-    private float runSpeed = 25;
+    private float runSpeed = 20;
 	private float jumpPower = 15;
 	private float gravity = 40;
     private float minSensitivity = 0.1f;
+    private bool Climb = false;
+    private bool Grounded = false;
 	
 	void Start()
 	{
@@ -27,16 +29,23 @@ public class PlayerMovement : MonoBehaviour
 
     void Movement() {
         if (Input.GetAxisRaw("LeftJoystickX") > minSensitivity || Input.GetAxisRaw("LeftJoystickX") < -minSensitivity)
-        {
-            movementVector.x = Input.GetAxis("LeftJoystickX") * speed;
+        {    
+                movementVector.x = Input.GetAxis("LeftJoystickX") * speed;      
         }
-        else
+        else 
         {
             movementVector.x = 0;
         }
         if (Input.GetAxisRaw("LeftJoystickY") > minSensitivity || Input.GetAxisRaw("LeftJoystickY") < -minSensitivity)
-        {
+        {           
             movementVector.z = Input.GetAxis("LeftJoystickY") * speed;
+            
+            if (Climb == true)
+            {
+                movementVector.z = 0;
+                movementVector.y = Input.GetAxis("LeftJoystickY") * speed;
+            }
+            
         }
         else
         {
@@ -81,4 +90,28 @@ public class PlayerMovement : MonoBehaviour
 
         characterController.Move(movementVector * Time.deltaTime);
     }
+    void OnTriggerEnter(Collider col) {
+        if (col.gameObject.tag == "Ladder")
+        {
+            Climb = true;
+        }
+        else
+        {
+            Climb = false;
+        }
+       
+
+    }
+
+    void OnTriggerExit(Collider col)
+    {
+        if (col.gameObject.tag == "Ladder")
+        {
+            Climb = false;
+        }
+        
+
+    }
+
+  
 }
