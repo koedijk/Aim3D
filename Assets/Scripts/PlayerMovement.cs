@@ -4,9 +4,9 @@ using System.Collections;
 public class PlayerMovement : MonoBehaviour
 {
 	private Vector3 movementVector;
-	private CharacterController characterController;
-
+	private CharacterController characterController;    
     private float speed;
+    private float rotateSpeed = 250;
 	private float movementSpeed = 8;
     private float runSpeed = 20;
 	private float jumpPower = 15;
@@ -14,23 +14,30 @@ public class PlayerMovement : MonoBehaviour
     private float minSensitivity = 0.1f;
     private bool Climb = false;
     private bool Grounded = false;
+    private Quaternion playerRotation;
+    private float turnInput;
 	
 	void Start()
 	{
 		characterController = GetComponent<CharacterController>();
         speed = movementSpeed;
+        playerRotation = transform.rotation;
+        
+       
 	}
 	
 	void Update()
 	{
+        transform.rotation = playerRotation;
         Movement();
-        Buttons();		
+        Rotation();
+        Buttons();
 	}
 
     void Movement() {
         if (Input.GetAxisRaw("LeftJoystickX") > minSensitivity || Input.GetAxisRaw("LeftJoystickX") < -minSensitivity)
-        {    
-                movementVector.x = Input.GetAxis("LeftJoystickX") * speed;      
+        {
+            movementVector.x = Input.GetAxis("LeftJoystickX") * speed;   
         }
         else 
         {
@@ -40,7 +47,7 @@ public class PlayerMovement : MonoBehaviour
         {           
             movementVector.z = Input.GetAxis("LeftJoystickY") * speed;
             
-            if (Climb == true)
+           if (Climb == true)
             {
                 movementVector.z = 0;
                 movementVector.y = Input.GetAxis("LeftJoystickY") * speed;
@@ -50,6 +57,20 @@ public class PlayerMovement : MonoBehaviour
         else
         {
             movementVector.z = 0;
+        }
+    }
+
+    void Rotation()
+    {
+        
+        if (Input.GetAxisRaw("RightJoystickX") > minSensitivity || Input.GetAxisRaw("RightJoystickX") < -minSensitivity)
+        {
+            playerRotation *= Quaternion.AngleAxis(rotateSpeed * Input.GetAxis("RightJoystickX") * Time.deltaTime, Vector3.up);
+            //transform.rotation = playerRotation;
+        }
+        else
+        {
+            
         }
     }
 
@@ -88,6 +109,8 @@ public class PlayerMovement : MonoBehaviour
 
         movementVector.y -= gravity * Time.deltaTime;
 
+        //characterController.Move(movementVector * Time.deltaTime);
+        movementVector = transform.TransformDirection(movementVector);
         characterController.Move(movementVector * Time.deltaTime);
     }
     void OnTriggerEnter(Collider col) {
