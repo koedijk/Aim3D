@@ -6,12 +6,12 @@ public class PlayerMovement : MonoBehaviour
 	private Vector3 movementVector;
 	private CharacterController characterController;    
     private float speed;
-    private float rotateSpeed = 250;
+    private float rotateSpeed = 125f;
 	private float movementSpeed = 8;
     private float runSpeed = 20;
 	private float jumpPower = 15;
 	private float gravity = 40;
-    private float minSensitivity = 0.1f;
+    private float minSensitivity = 0.2f;
     private bool Climb = false;
     private bool Grounded = false;
     private Quaternion playerRotation;
@@ -32,25 +32,28 @@ public class PlayerMovement : MonoBehaviour
         Movement();
         Rotation();
         Buttons();
+        MovementKeyboard();
 	}
 
     void Movement() {
         if (Input.GetAxisRaw("LeftJoystickX") > minSensitivity || Input.GetAxisRaw("LeftJoystickX") < -minSensitivity)
         {
-            movementVector.x = Input.GetAxis("LeftJoystickX") * speed;   
+            movementVector.x = Input.GetAxis("LeftJoystickX") * speed;
         }
         else 
         {
             movementVector.x = 0;
         }
-        if (Input.GetAxisRaw("LeftJoystickY") > minSensitivity || Input.GetAxisRaw("LeftJoystickY") < -minSensitivity)
+        if (Input.GetAxisRaw("LeftJoystickY") > minSensitivity || Input.GetAxisRaw("LeftJoystickY") < -minSensitivity || Input.GetButton("Vertical"))
         {           
             movementVector.z = Input.GetAxis("LeftJoystickY") * speed;
+            movementVector.z = 1 * speed;
             
            if (Climb == true)
             {
                 movementVector.z = 0;
                 movementVector.y = Input.GetAxis("LeftJoystickY") * speed;
+                movementVector.y = 1 * speed;
             }
             
         }
@@ -66,12 +69,9 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetAxisRaw("RightJoystickX") > minSensitivity || Input.GetAxisRaw("RightJoystickX") < -minSensitivity)
         {
             playerRotation *= Quaternion.AngleAxis(rotateSpeed * Input.GetAxis("RightJoystickX") * Time.deltaTime, Vector3.up);
-            //transform.rotation = playerRotation;
-        }
-        else
-        {
             
         }
+ 
     }
 
     void Buttons() {
@@ -109,9 +109,16 @@ public class PlayerMovement : MonoBehaviour
 
         movementVector.y -= gravity * Time.deltaTime;
 
-        //characterController.Move(movementVector * Time.deltaTime);
         movementVector = transform.TransformDirection(movementVector);
         characterController.Move(movementVector * Time.deltaTime);
+    }
+
+    void MovementKeyboard() 
+    {
+        if (Input.GetAxisRaw("MouseX") < -minSensitivity || Input.GetAxisRaw("MouseX") > minSensitivity)
+        {
+            playerRotation *= Quaternion.AngleAxis(rotateSpeed * Input.GetAxis("MouseX") * Time.deltaTime, Vector3.up);
+        }
     }
     void OnTriggerEnter(Collider col) {
         if (col.gameObject.tag == "Ladder")
