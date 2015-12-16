@@ -7,11 +7,11 @@ public class PlayerMovement : MonoBehaviour
 	private CharacterController characterController;    
     private float speed;
     private float rotateSpeed = 125f;
-	private float movementSpeed = 8;
-    private float runSpeed = 20;
+	private float movementSpeed = 10;
+    private float runSpeed = 16;
 	private float jumpPower = 15;
 	private float gravity = 40;
-    private float minSensitivity = 0.2f;
+    private float minSensitivity = 0.1f;
     private bool Climb = false;
     private bool Grounded = false;
     private Quaternion playerRotation;
@@ -47,13 +47,12 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetAxisRaw("LeftJoystickY") > minSensitivity || Input.GetAxisRaw("LeftJoystickY") < -minSensitivity || Input.GetButton("Vertical"))
         {           
             movementVector.z = Input.GetAxis("LeftJoystickY") * speed;
-            movementVector.z = 1 * speed;
             
            if (Climb == true)
             {
                 movementVector.z = 0;
                 movementVector.y = Input.GetAxis("LeftJoystickY") * speed;
-                movementVector.y = 1 * speed;
+                
             }
             
         }
