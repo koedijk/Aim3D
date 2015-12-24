@@ -4,18 +4,28 @@ using System.Collections;
 public class PlayerMovement : MonoBehaviour
 {
 	private Vector3 movementVector;
-	private CharacterController characterController;    
+	private CharacterController characterController; 
+   
+    //Speeds
     private float speed;
-    private float rotateSpeed = 125f;
-	private float movementSpeed = 10;
+   	private float movementSpeed = 10;
     private float runSpeed = 16;
+
+    //Jump
 	private float jumpPower = 15;
 	private float gravity = 40;
-    private float minSensitivity = 0.1f;
-    private bool Climb = false;
     private bool Grounded = false;
+
+    //Controller Sensitivity
+    private float minSensitivity = 0.1f;
+
+    //Ladder 
+    private bool Climb = false;
+    
+    //Rotation
     private Quaternion playerRotation;
     private float turnInput;
+    private float rotateSpeed = 125f;
 	
 	void Start()
 	{
