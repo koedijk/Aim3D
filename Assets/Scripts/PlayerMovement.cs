@@ -6,19 +6,23 @@ public class PlayerMovement : MonoBehaviour
 	private Vector3 movementVector;
 	private CharacterController characterController; 
    
+
     //Speeds
     private float speed;
    	private float movementSpeed = 10;
     private float runSpeed = 16;
+
 
     //Jump
 	private float jumpPower = 15;
 	private float gravity = 40;
     private bool Grounded = false;
 
+    
     //Controller Sensitivity
     private float minSensitivity = 0.1f;
 
+    
     //Ladder 
     private bool Climb = false;
     
@@ -27,6 +31,7 @@ public class PlayerMovement : MonoBehaviour
     private float turnInput;
     private float rotateSpeed = 125f;
 	
+
 	void Start()
 	{
 		characterController = GetComponent<CharacterController>();
@@ -55,16 +60,13 @@ public class PlayerMovement : MonoBehaviour
             movementVector.x = 0;
         }
         if (Input.GetAxisRaw("LeftJoystickY") > minSensitivity || Input.GetAxisRaw("LeftJoystickY") < -minSensitivity || Input.GetButton("Vertical"))
-        {           
+        {
             movementVector.z = Input.GetAxis("LeftJoystickY") * speed;
-            
-           if (Climb == true)
+           /* if (Climb == true)
             {
-                movementVector.z = 0;
                 movementVector.y = Input.GetAxis("LeftJoystickY") * speed;
-                
-            }
-            
+            }*/
+                       
         }
         else
         {
@@ -108,7 +110,7 @@ public class PlayerMovement : MonoBehaviour
             if (Input.GetButtonDown("LeftStickClick"))
             {
                speed = runSpeed;
-               Debug.Log("Player.cs: LeftStickClick");
+               //Debug.Log("Player.cs: LeftStickClick");
             }
             else if (Input.GetButtonUp("LeftStickClick"))
             {
@@ -133,6 +135,7 @@ public class PlayerMovement : MonoBehaviour
         if (col.gameObject.tag == "Ladder")
         {
             Climb = true;
+            Debug.Log(Climb);
         }
         else
         {

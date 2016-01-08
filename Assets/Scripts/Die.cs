@@ -6,9 +6,6 @@ public class Die : MonoBehaviour {
     public Respawn respawn;
     private Vector3 RespawnPos;
 	// Use this for initialization
-    void Awake() {
-        RespawnPos = respawn.CheckpointPos;
-    }
 
 	void Start () {
         
@@ -24,8 +21,8 @@ public class Die : MonoBehaviour {
     {
         if (other.tag == "Player")
         {
-            RespawnPos = respawn.CheckpointPos;
-            Player.transform.position = RespawnPos;
+            Player.transform.position = respawn.CheckpointPos;
+            Player.transform.eulerAngles = respawn.CheckpointRot;
         }
     }
 }
