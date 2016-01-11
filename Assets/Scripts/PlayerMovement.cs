@@ -14,7 +14,7 @@ public class PlayerMovement : MonoBehaviour
 
 
     //Jump
-	private float jumpPower = 15;
+	public float jumpPower = 18;
 	private float gravity = 40;
     private bool Grounded = false;
 
@@ -61,11 +61,15 @@ public class PlayerMovement : MonoBehaviour
         }
         if (Input.GetAxisRaw("LeftJoystickY") > minSensitivity || Input.GetAxisRaw("LeftJoystickY") < -minSensitivity || Input.GetButton("Vertical"))
         {
-            movementVector.z = Input.GetAxis("LeftJoystickY") * speed;
-           /* if (Climb == true)
+            if (Climb == true)
             {
                 movementVector.y = Input.GetAxis("LeftJoystickY") * speed;
-            }*/
+            }
+            else
+            {
+                movementVector.z = Input.GetAxis("LeftJoystickY") * speed;
+            }
+           
                        
         }
         else
@@ -132,7 +136,7 @@ public class PlayerMovement : MonoBehaviour
         }
     }
     void OnTriggerEnter(Collider col) {
-        if (col.gameObject.tag == "Ladder")
+        if (col.gameObject.tag == "Stair")
         {
             Climb = true;
             Debug.Log(Climb);
