@@ -14,6 +14,7 @@ public class ColorChange : MonoBehaviour {
     public Renderer rend;
 	// Use this for initialization
 	void Start () {
+        index = ColorTexture.Length-1;
         rend = GetComponent<Renderer>();
         rend.enabled = true;
         rend.sharedMaterial = ColorTexture[0];
@@ -29,8 +30,7 @@ public class ColorChange : MonoBehaviour {
     {        
         if (other.tag == "Player")
         {
-            rend.sharedMaterial = ColorTexture[4];
-            Debug.Log("ColorChanged");
+            rend.sharedMaterial = ColorTexture[1];            
         }        
     }
 }

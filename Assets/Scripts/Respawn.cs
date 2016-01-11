@@ -8,10 +8,10 @@ public class Respawn : MonoBehaviour {
 	void Awake () {
         CheckpointPos = new Vector3(32, 47, -210);
         CheckpointRot = this.transform.eulerAngles;
+        Debug.Log(CheckpointPos);
         Debug.Log(CheckpointRot);
 
-	}
-	
+	}	
 	// Update is called once per frame
 	void Update () {
         
@@ -22,10 +22,9 @@ public class Respawn : MonoBehaviour {
             
             Debug.Log("Walked Through");
             CheckpointPos = other.transform.position;
-            CheckpointRot = transform.rotation.eulerAngles;
+            CheckpointRot = other.transform.eulerAngles;
             Debug.Log(CheckpointPos);
             Debug.Log(CheckpointRot);
-            Destroy(other);
             
         }
     }
