@@ -19,3 +19,6 @@ Peije Steinz, Levi Veugelers & Rianne van der Pol
 
 Developers:
 Joey Koedijk & Ralph Otte
+
+Link to the game
+http://17798.hosts.ma-cloud.nl/Aim3D/Aim3D.html
