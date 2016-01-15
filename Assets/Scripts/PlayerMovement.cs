@@ -4,11 +4,13 @@ using System.Collections;
 public class PlayerMovement : MonoBehaviour
 {
 	private Vector3 movementVector;
+    private Vector3 KeyboardVector;
 	private CharacterController characterController; 
    
 
     //Speeds
     private float speed;
+    private float keyboardSpeed = 500;
    	private float movementSpeed = 10;
     private float runSpeed = 16;
 
@@ -37,7 +39,6 @@ public class PlayerMovement : MonoBehaviour
 		characterController = GetComponent<CharacterController>();
         speed = movementSpeed;
         playerRotation = transform.rotation;
-        
        
 	}
 	
@@ -47,7 +48,8 @@ public class PlayerMovement : MonoBehaviour
         Movement();
         Rotation();
         Buttons();
-        MovementKeyboard();
+        //MovementKeyboard();
+        
 	}
 
     void Movement() {
@@ -59,18 +61,9 @@ public class PlayerMovement : MonoBehaviour
         {
             movementVector.x = 0;
         }
-        if (Input.GetAxisRaw("LeftJoystickY") > minSensitivity || Input.GetAxisRaw("LeftJoystickY") < -minSensitivity || Input.GetButton("Vertical"))
-        {
-            if (Climb == true)
-            {
-                movementVector.y = Input.GetAxis("LeftJoystickY") * speed;
-            }
-            else
-            {
-                movementVector.z = Input.GetAxis("LeftJoystickY") * speed;
-            }
-           
-                       
+        if (Input.GetAxisRaw("LeftJoystickY") > minSensitivity || Input.GetAxisRaw("LeftJoystickY") < -minSensitivity)
+        {          
+            movementVector.z = Input.GetAxis("LeftJoystickY") * speed;                   
         }
         else
         {
@@ -80,12 +73,17 @@ public class PlayerMovement : MonoBehaviour
 
     void Rotation()
     {
-        
+
         if (Input.GetAxisRaw("RightJoystickX") > minSensitivity || Input.GetAxisRaw("RightJoystickX") < -minSensitivity)
         {
-            playerRotation *= Quaternion.AngleAxis(rotateSpeed * Input.GetAxis("RightJoystickX") * Time.deltaTime, Vector3.up);
-            
+            playerRotation *= Quaternion.AngleAxis(rotateSpeed * Input.GetAxis("RightJoystickX") * Time.deltaTime, Vector3.up);            
         }
+
+        /*if (Input.GetAxisRaw("MouseX") > minSensitivity || Input.GetAxisRaw("MouseX") < -minSensitivity) 
+        {
+            playerRotation *= Quaternion.AngleAxis(rotateSpeed * Input.GetAxis("MouseX") * Time.deltaTime, Vector3.up);
+        }*/
+         
  
     }
 
@@ -93,6 +91,7 @@ public class PlayerMovement : MonoBehaviour
         if (characterController.isGrounded)
         {
             movementVector.y = 0;
+            KeyboardVector.y = 0;
 
             if (Input.GetButtonDown("A"))
             {
@@ -123,41 +122,28 @@ public class PlayerMovement : MonoBehaviour
         }
 
         movementVector.y -= gravity * Time.deltaTime;
-
         movementVector = transform.TransformDirection(movementVector);
         characterController.Move(movementVector * Time.deltaTime);
+
     }
 
     void MovementKeyboard() 
     {
-        if (Input.GetAxisRaw("MouseX") < -minSensitivity || Input.GetAxisRaw("MouseX") > minSensitivity)
+        if (Input.GetAxisRaw("Horizontal") > minSensitivity || Input.GetAxisRaw("Horizontal") < -minSensitivity)
         {
-            playerRotation *= Quaternion.AngleAxis(rotateSpeed * Input.GetAxis("MouseX") * Time.deltaTime, Vector3.up);
+            KeyboardVector.x = (Input.GetAxis("Horizontal") * keyboardSpeed) * Time.deltaTime;
         }
-    }
-    void OnTriggerEnter(Collider col) {
-        if (col.gameObject.tag == "Stair")
+        if (Input.GetAxisRaw("Vertical") > minSensitivity || Input.GetAxisRaw("Vertical") < -minSensitivity)
         {
-            Climb = true;
-            Debug.Log(Climb);
+            KeyboardVector.z = (Input.GetAxis("Vertical") * keyboardSpeed) * Time.deltaTime;
         }
-        else
+        if (Input.GetAxisRaw("Horizontal") > minSensitivity || Input.GetAxisRaw("Horizontal") < -minSensitivity || Input.GetAxisRaw("Vertical") > minSensitivity || Input.GetAxisRaw("Vertical") < -minSensitivity) 
         {
-            Climb = false;
+            KeyboardVector = transform.TransformDirection(movementVector);
+            characterController.Move(KeyboardVector * Time.deltaTime);
         }
-       
 
-    }
-
-    void OnTriggerExit(Collider col)
-    {
-        if (col.gameObject.tag == "Ladder")
-        {
-            Climb = false;
-        }
         
-
     }
-
-  
+      
 }

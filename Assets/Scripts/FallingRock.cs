@@ -2,6 +2,9 @@
 using System.Collections;
 
 public class FallingRock : MonoBehaviour {
+
+    public GameObject fallingrock;
+
 	// Use this for initialization
 	void Start () {
         Physics.gravity = new Vector3(0, 0, 0);
@@ -18,6 +21,7 @@ public class FallingRock : MonoBehaviour {
         if (other.tag == "Player") 
         {
             Physics.gravity = new Vector3(0, -10, 0);
+            Destroy(this.gameObject);
         }
     }
 }

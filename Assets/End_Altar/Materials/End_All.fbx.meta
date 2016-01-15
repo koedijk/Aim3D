@@ -1,0 +1,555 @@
+fileFormatVersion: 2
+guid: af97f5645b4f354429fb235a02706b86
+timeCreated: 1452788489
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: curve1
+    100002: curve1 1
+    100004: curve1 2
+    100006: curve1 3
+    100008: curve2
+    100010: curve2 1
+    100012: curve2 2
+    100014: curve2 3
+    100016: curve3
+    100018: curve3 1
+    100020: curve3 2
+    100022: curve3 3
+    100024: curve4
+    100026: curve4 1
+    100028: curve4 2
+    100030: curve4 3
+    100032: curve5
+    100034: curve5 1
+    100036: curve5 2
+    100038: curve5 3
+    100040: //RootNode
+    100042: group15
+    100044: Group17501-retopo 1
+    100046: Group17501-retopo 2
+    100048: group19
+    100050: group21
+    100052: group22
+    100054: group23
+    100056: Group35227-retopo 1
+    100058: Group38609-retopo 1
+    100060: Group38609-retopo 2
+    100062: Obelisk_to_mudbox:pCube1
+    100064: pCube1
+    100066: pCube10
+    100068: pCube11
+    100070: pCube12
+    100072: pCube13
+    100074: pCube3
+    100076: pCube4
+    100078: pCube8
+    100080: pCube9
+    100082: pCylinder2
+    100084: pCylinder3
+    100086: pCylinder4
+    100088: pCylinder48
+    100090: pCylinder49
+    100092: pCylinder49 1
+    100094: pCylinder49 2
+    100096: pCylinder49 3
+    100098: pPyramid12
+    100100: pPyramid12 1
+    100102: pPyramid12 2
+    100104: pPyramid12 3
+    100106: pPyramid17
+    100108: pPyramid17 1
+    100110: pPyramid17 2
+    100112: pPyramid17 3
+    100114: pPyramid18
+    100116: pPyramid18 1
+    100118: pPyramid18 2
+    100120: pPyramid18 3
+    100122: pPyramid19
+    100124: pPyramid19 1
+    100126: pPyramid19 2
+    100128: pPyramid19 3
+    100130: pPyramid20
+    100132: pPyramid20 1
+    100134: pPyramid20 2
+    100136: pPyramid20 3
+    100138: pPyramid21
+    100140: pPyramid21 1
+    100142: pPyramid21 2
+    100144: pPyramid21 3
+    100146: pPyramid22
+    100148: pPyramid22 1
+    100150: pPyramid22 2
+    100152: pPyramid22 3
+    100154: pPyramid23
+    100156: pPyramid23 1
+    100158: pPyramid23 2
+    100160: pPyramid23 3
+    100162: pPyramid24
+    100164: pPyramid24 1
+    100166: pPyramid24 2
+    100168: pPyramid24 3
+    100170: pPyramid25
+    100172: pPyramid25 1
+    100174: pPyramid25 2
+    100176: pPyramid25 3
+    100178: pPyramid26
+    100180: pPyramid26 1
+    100182: pPyramid26 2
+    100184: pPyramid26 3
+    100186: pPyramid27
+    100188: pPyramid27 1
+    100190: pPyramid27 2
+    100192: pPyramid27 3
+    100194: pPyramid29
+    100196: pPyramid29 1
+    100198: pPyramid29 2
+    100200: pPyramid29 3
+    100202: pPyramid30
+    100204: pPyramid30 1
+    100206: pPyramid30 2
+    100208: pPyramid30 3
+    100210: pPyramid31
+    100212: pPyramid31 1
+    100214: pPyramid31 2
+    100216: pPyramid31 3
+    100218: pPyramid32
+    100220: pPyramid32 1
+    100222: pPyramid32 2
+    100224: pPyramid32 3
+    100226: transform43
+    100228: transform44
+    100230: transform45
+    100232: transform46
+    100234: transform47
+    100236: transform48
+    100238: transform49
+    100240: transform50
+    100242: transform51
+    100244: ZBrush_defualt_group-retopo 1
+    400000: curve1
+    400002: curve1 1
+    400004: curve1 2
+    400006: curve1 3
+    400008: curve2
+    400010: curve2 1
+    400012: curve2 2
+    400014: curve2 3
+    400016: curve3
+    400018: curve3 1
+    400020: curve3 2
+    400022: curve3 3
+    400024: curve4
+    400026: curve4 1
+    400028: curve4 2
+    400030: curve4 3
+    400032: curve5
+    400034: curve5 1
+    400036: curve5 2
+    400038: curve5 3
+    400040: //RootNode
+    400042: group15
+    400044: Group17501-retopo 1
+    400046: Group17501-retopo 2
+    400048: group19
+    400050: group21
+    400052: group22
+    400054: group23
+    400056: Group35227-retopo 1
+    400058: Group38609-retopo 1
+    400060: Group38609-retopo 2
+    400062: Obelisk_to_mudbox:pCube1
+    400064: pCube1
+    400066: pCube10
+    400068: pCube11
+    400070: pCube12
+    400072: pCube13
+    400074: pCube3
+    400076: pCube4
+    400078: pCube8
+    400080: pCube9
+    400082: pCylinder2
+    400084: pCylinder3
+    400086: pCylinder4
+    400088: pCylinder48
+    400090: pCylinder49
+    400092: pCylinder49 1
+    400094: pCylinder49 2
+    400096: pCylinder49 3
+    400098: pPyramid12
+    400100: pPyramid12 1
+    400102: pPyramid12 2
+    400104: pPyramid12 3
+    400106: pPyramid17
+    400108: pPyramid17 1
+    400110: pPyramid17 2
+    400112: pPyramid17 3
+    400114: pPyramid18
+    400116: pPyramid18 1
+    400118: pPyramid18 2
+    400120: pPyramid18 3
+    400122: pPyramid19
+    400124: pPyramid19 1
+    400126: pPyramid19 2
+    400128: pPyramid19 3
+    400130: pPyramid20
+    400132: pPyramid20 1
+    400134: pPyramid20 2
+    400136: pPyramid20 3
+    400138: pPyramid21
+    400140: pPyramid21 1
+    400142: pPyramid21 2
+    400144: pPyramid21 3
+    400146: pPyramid22
+    400148: pPyramid22 1
+    400150: pPyramid22 2
+    400152: pPyramid22 3
+    400154: pPyramid23
+    400156: pPyramid23 1
+    400158: pPyramid23 2
+    400160: pPyramid23 3
+    400162: pPyramid24
+    400164: pPyramid24 1
+    400166: pPyramid24 2
+    400168: pPyramid24 3
+    400170: pPyramid25
+    400172: pPyramid25 1
+    400174: pPyramid25 2
+    400176: pPyramid25 3
+    400178: pPyramid26
+    400180: pPyramid26 1
+    400182: pPyramid26 2
+    400184: pPyramid26 3
+    400186: pPyramid27
+    400188: pPyramid27 1
+    400190: pPyramid27 2
+    400192: pPyramid27 3
+    400194: pPyramid29
+    400196: pPyramid29 1
+    400198: pPyramid29 2
+    400200: pPyramid29 3
+    400202: pPyramid30
+    400204: pPyramid30 1
+    400206: pPyramid30 2
+    400208: pPyramid30 3
+    400210: pPyramid31
+    400212: pPyramid31 1
+    400214: pPyramid31 2
+    400216: pPyramid31 3
+    400218: pPyramid32
+    400220: pPyramid32 1
+    400222: pPyramid32 2
+    400224: pPyramid32 3
+    400226: transform43
+    400228: transform44
+    400230: transform45
+    400232: transform46
+    400234: transform47
+    400236: transform48
+    400238: transform49
+    400240: transform50
+    400242: transform51
+    400244: ZBrush_defualt_group-retopo 1
+    2300000: Group38609-retopo 2
+    2300002: Obelisk_to_mudbox:pCube1
+    2300004: pCube1
+    2300006: pCube13
+    2300008: pCube3
+    2300010: pCube8
+    2300012: pCylinder2
+    2300014: pCylinder3
+    2300016: pCylinder4
+    2300018: pCylinder48
+    2300020: pCylinder49
+    2300022: pCylinder49 1
+    2300024: pCylinder49 2
+    2300026: pCylinder49 3
+    2300028: pPyramid12
+    2300030: pPyramid12 1
+    2300032: pPyramid12 2
+    2300034: pPyramid12 3
+    2300036: pPyramid17
+    2300038: pPyramid17 1
+    2300040: pPyramid17 2
+    2300042: pPyramid17 3
+    2300044: pPyramid18
+    2300046: pPyramid18 1
+    2300048: pPyramid18 2
+    2300050: pPyramid18 3
+    2300052: pPyramid19
+    2300054: pPyramid19 1
+    2300056: pPyramid19 2
+    2300058: pPyramid19 3
+    2300060: pPyramid20
+    2300062: pPyramid20 1
+    2300064: pPyramid20 2
+    2300066: pPyramid20 3
+    2300068: pPyramid21
+    2300070: pPyramid21 1
+    2300072: pPyramid21 2
+    2300074: pPyramid21 3
+    2300076: pPyramid22
+    2300078: pPyramid22 1
+    2300080: pPyramid22 2
+    2300082: pPyramid22 3
+    2300084: pPyramid23
+    2300086: pPyramid23 1
+    2300088: pPyramid23 2
+    2300090: pPyramid23 3
+    2300092: pPyramid24
+    2300094: pPyramid24 1
+    2300096: pPyramid24 2
+    2300098: pPyramid24 3
+    2300100: pPyramid25
+    2300102: pPyramid25 1
+    2300104: pPyramid25 2
+    2300106: pPyramid25 3
+    2300108: pPyramid26
+    2300110: pPyramid26 1
+    2300112: pPyramid26 2
+    2300114: pPyramid26 3
+    2300116: pPyramid27
+    2300118: pPyramid27 1
+    2300120: pPyramid27 2
+    2300122: pPyramid27 3
+    2300124: pPyramid29
+    2300126: pPyramid29 1
+    2300128: pPyramid29 2
+    2300130: pPyramid29 3
+    2300132: pPyramid30
+    2300134: pPyramid30 1
+    2300136: pPyramid30 2
+    2300138: pPyramid30 3
+    2300140: pPyramid31
+    2300142: pPyramid31 1
+    2300144: pPyramid31 2
+    2300146: pPyramid31 3
+    2300148: pPyramid32
+    2300150: pPyramid32 1
+    2300152: pPyramid32 2
+    2300154: pPyramid32 3
+    2300156: ZBrush_defualt_group-retopo 1
+    3300000: Group38609-retopo 2
+    3300002: Obelisk_to_mudbox:pCube1
+    3300004: pCube1
+    3300006: pCube13
+    3300008: pCube3
+    3300010: pCube8
+    3300012: pCylinder2
+    3300014: pCylinder3
+    3300016: pCylinder4
+    3300018: pCylinder48
+    3300020: pCylinder49
+    3300022: pCylinder49 1
+    3300024: pCylinder49 2
+    3300026: pCylinder49 3
+    3300028: pPyramid12
+    3300030: pPyramid12 1
+    3300032: pPyramid12 2
+    3300034: pPyramid12 3
+    3300036: pPyramid17
+    3300038: pPyramid17 1
+    3300040: pPyramid17 2
+    3300042: pPyramid17 3
+    3300044: pPyramid18
+    3300046: pPyramid18 1
+    3300048: pPyramid18 2
+    3300050: pPyramid18 3
+    3300052: pPyramid19
+    3300054: pPyramid19 1
+    3300056: pPyramid19 2
+    3300058: pPyramid19 3
+    3300060: pPyramid20
+    3300062: pPyramid20 1
+    3300064: pPyramid20 2
+    3300066: pPyramid20 3
+    3300068: pPyramid21
+    3300070: pPyramid21 1
+    3300072: pPyramid21 2
+    3300074: pPyramid21 3
+    3300076: pPyramid22
+    3300078: pPyramid22 1
+    3300080: pPyramid22 2
+    3300082: pPyramid22 3
+    3300084: pPyramid23
+    3300086: pPyramid23 1
+    3300088: pPyramid23 2
+    3300090: pPyramid23 3
+    3300092: pPyramid24
+    3300094: pPyramid24 1
+    3300096: pPyramid24 2
+    3300098: pPyramid24 3
+    3300100: pPyramid25
+    3300102: pPyramid25 1
+    3300104: pPyramid25 2
+    3300106: pPyramid25 3
+    3300108: pPyramid26
+    3300110: pPyramid26 1
+    3300112: pPyramid26 2
+    3300114: pPyramid26 3
+    3300116: pPyramid27
+    3300118: pPyramid27 1
+    3300120: pPyramid27 2
+    3300122: pPyramid27 3
+    3300124: pPyramid29
+    3300126: pPyramid29 1
+    3300128: pPyramid29 2
+    3300130: pPyramid29 3
+    3300132: pPyramid30
+    3300134: pPyramid30 1
+    3300136: pPyramid30 2
+    3300138: pPyramid30 3
+    3300140: pPyramid31
+    3300142: pPyramid31 1
+    3300144: pPyramid31 2
+    3300146: pPyramid31 3
+    3300148: pPyramid32
+    3300150: pPyramid32 1
+    3300152: pPyramid32 2
+    3300154: pPyramid32 3
+    3300156: ZBrush_defualt_group-retopo 1
+    4300000: Obelisk_to_mudbox:pCube1
+    4300002: pCube1
+    4300004: pCube3
+    4300006: pCube8
+    4300008: pCylinder2
+    4300010: pCylinder3
+    4300012: pCylinder4
+    4300014: pCylinder48
+    4300016: pCube13
+    4300018: pCylinder49
+    4300020: pPyramid12
+    4300022: pPyramid17
+    4300024: pPyramid18
+    4300026: pPyramid19
+    4300028: pPyramid20
+    4300030: pPyramid21
+    4300032: pPyramid22
+    4300034: pPyramid23
+    4300036: pPyramid24
+    4300038: pPyramid25
+    4300040: pPyramid26
+    4300042: pPyramid27
+    4300044: pPyramid29
+    4300046: pPyramid30
+    4300048: pPyramid31
+    4300050: pPyramid32
+    4300052: ZBrush_defualt_group-retopo 1
+    4300054: pCylinder49
+    4300056: pPyramid12
+    4300058: pPyramid17
+    4300060: pPyramid18
+    4300062: pPyramid19
+    4300064: pPyramid20
+    4300066: pPyramid21
+    4300068: pPyramid22
+    4300070: pPyramid23
+    4300072: pPyramid24
+    4300074: pPyramid25
+    4300076: pPyramid26
+    4300078: pPyramid27
+    4300080: pPyramid29
+    4300082: pPyramid30
+    4300084: pPyramid31
+    4300086: pPyramid32
+    4300088: pCylinder49
+    4300090: pPyramid12
+    4300092: pPyramid17
+    4300094: pPyramid18
+    4300096: pPyramid19
+    4300098: pPyramid20
+    4300100: pPyramid21
+    4300102: pPyramid22
+    4300104: pPyramid23
+    4300106: pPyramid24
+    4300108: pPyramid25
+    4300110: pPyramid26
+    4300112: pPyramid27
+    4300114: pPyramid29
+    4300116: pPyramid30
+    4300118: pPyramid31
+    4300120: pPyramid32
+    4300122: pCylinder49
+    4300124: pPyramid12
+    4300126: pPyramid17
+    4300128: pPyramid18
+    4300130: pPyramid19
+    4300132: pPyramid20
+    4300134: pPyramid21
+    4300136: pPyramid22
+    4300138: pPyramid23
+    4300140: pPyramid24
+    4300142: pPyramid25
+    4300144: pPyramid26
+    4300146: pPyramid27
+    4300148: pPyramid29
+    4300150: pPyramid30
+    4300152: pPyramid31
+    4300154: pPyramid32
+    4300156: Group38609-retopo 2
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleRotations: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

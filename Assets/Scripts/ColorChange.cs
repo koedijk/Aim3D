@@ -7,8 +7,6 @@ public class ColorChange : MonoBehaviour {
     public GameObject ColorTest;
 
     private int index;
-    private bool Color = true;
-
     private int maxTextures;
     private int arrayPos;
     public Renderer rend;
