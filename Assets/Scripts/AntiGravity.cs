@@ -13,16 +13,13 @@ public class AntiGravity : MonoBehaviour {
 	
 	}
 
-    void OnTriggerEnter(Collider col) 
+    void OnTriggerStay(Collider col) 
     {
         if (col.tag == "Anti-Gravity") 
         {
             JumpPower.jumpPower = 65;
         }
-        if (col.tag == "Fall") 
-        {
-
-        }
+        
     }
 
     void OnTriggerExit(Collider col) 

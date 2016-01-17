@@ -8,8 +8,6 @@ public class Respawn : MonoBehaviour {
 	void Awake () {
         CheckpointPos = new Vector3(32, 47, -210);
         CheckpointRot = this.transform.eulerAngles;
-        
-
 	}
 	
 	// Update is called once per frame

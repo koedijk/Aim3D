@@ -5,7 +5,8 @@ using System.Collections.Generic;
 
 public class Ending : MonoBehaviour {
 
-	public GameObject player;
+	private GameObject player;
+    private GameObject PlayerCamera;
 	private Vector3 playerPosY;
 	private int rotateCount;
 	private int heightCount;
@@ -70,6 +71,8 @@ public class Ending : MonoBehaviour {
 	void Start () {
 		rotateCount = 0;
 		heightCount = 0;
+        player = GameObject.Find("Player");
+        PlayerCamera = GameObject.Find("Camera");
 	}
 	//Phase activation, so the ending will run properly.
 	void Update () {
@@ -98,19 +101,21 @@ public class Ending : MonoBehaviour {
 	//This will activate the ending of the game.
 	void OnTriggerEnter(Collider other)
 	{
-		if (other.tag == "Player")
-		{
-			Debug.Log (" Starting Ending");
-			endPhase1 = true;
-			decreaseTimer = true;
-			timeLeft = 2f;
-			Debug.Log (" Start Phase 1");
+
+        if (other.tag == "Player")
+		{       
+            Debug.Log(" Starting Ending");
+            endPhase1 = true;
+            decreaseTimer = true;
+            timeLeft = 2f;
+            Debug.Log(" Start Phase 1");
 		}
 	}
 
 	//End Phase timer.(This makes sure the player is in the correct spot, and removes the player's control.)
 	void EndPhase1(){
 		Destroy(player.GetComponent ("PlayerMovement"));
+        Destroy(PlayerCamera.GetComponent("CameraFollow"));
 		player.transform.position = new Vector3 (50.5f, 386, -92);
 		playerPosY = player.transform.position;
 		playerPosY.y = 386f;
@@ -188,12 +193,11 @@ public class Ending : MonoBehaviour {
 		for (int i = 0; i < sentenceList.Count; i++) {
 			Debug.Log(sentenceList[i] + " DL SentenceList[i]");
 		}
-
-		if (sentenceList.Count == 4) {
-			endPhase4 = true;
-			endPhase3 = false;
-			Debug.Log (" Start Phase 4");
-		}
+        if (sentenceList.Count == 4)
+        {
+            endPhase4 = true;
+            endPhase3 = false;
+        }
 	}
 
 	//End Phase Height(moves player to the "eye of the storm")

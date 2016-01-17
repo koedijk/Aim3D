@@ -22,11 +22,9 @@ public class CameraFollow : MonoBehaviour {
         {
             this.transform.rotation *= Quaternion.AngleAxis(rotateSpeed * Input.GetAxis("RightJoystickY") * Time.deltaTime, Vector3.right);
         }
-
         if (Input.GetAxisRaw("MouseY") > cameraSensitivity || Input.GetAxisRaw("MouseY") < -cameraSensitivity)
         {
-            this.transform.rotation *= Quaternion.AngleAxis(rotateSpeed * Input.GetAxis("MouseY") * Time.deltaTime, Vector3.left);
+            this.transform.rotation *= Quaternion.AngleAxis(rotateSpeed * Input.GetAxis("MouseY") * Time.deltaTime, Vector3.right);
         }
-        
     }
 }

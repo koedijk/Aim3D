@@ -11,6 +11,7 @@ public class ColorChange : MonoBehaviour {
     private int arrayPos;
     public Renderer rend;
 	// Use this for initialization
+
 	void Start () {
         rend = GetComponent<Renderer>();
         rend.enabled = true;
