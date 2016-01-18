@@ -46,7 +46,7 @@ public class CheckPoints : MonoBehaviour {
                 Destroy(GameObject.FindWithTag("FloatingRock"));                
                 AddBlur();
                 yield return new WaitForSeconds(2);                               
-                colorchange.rend.sharedMaterial = colorchange.ColorTexture[5];
+                colorchange.rend.sharedMaterial = colorchange.ColorTexture[0];
                 yield return new WaitForSeconds(1);
                 RemoveBlur();
                 Destroy(this.gameObject);
