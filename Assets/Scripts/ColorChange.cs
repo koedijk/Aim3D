@@ -15,7 +15,6 @@ public class ColorChange : MonoBehaviour {
 	void Start () {
         rend = GetComponent<Renderer>();
         rend.enabled = true;
-        rend.sharedMaterial = ColorTexture[0];
 	}
 	
 	// Update is called once per frame

@@ -6,6 +6,7 @@ public class CheckPoints : MonoBehaviour {
     public Respawn respawn;
     public GameObject BlurCam;
     private GameObject Player;
+    private CameraFollow CameraMove;
     public ColorChange colorchange;
     private int index;
     private string ObjectTag;
@@ -22,6 +23,8 @@ public class CheckPoints : MonoBehaviour {
     {
         BlurCam.GetComponent<UnityStandardAssets.ImageEffects.Blur>().enabled = true;
         Player.GetComponent<PlayerMovement>().enabled = false;
+        Player.GetComponentInChildren<CameraFollow>().enabled = false;
+
         
     }
 
@@ -29,30 +32,25 @@ public class CheckPoints : MonoBehaviour {
     {
         BlurCam.GetComponent<UnityStandardAssets.ImageEffects.Blur>().enabled = false;
         Player.GetComponent<PlayerMovement>().enabled = true;
+        Player.GetComponentInChildren<CameraFollow>().enabled = true;
     }
 
-    IEnumerator StopMove() 
-    {
-        print(Time.time);
-        yield return new WaitForSeconds(5f);
-        print(Time.time);
-    }
-
-    void OnTriggerEnter(Collider other) 
+    IEnumerator OnTriggerEnter (Collider other) 
     {
 		//Curiosity
         if(this.gameObject.tag == "Cave1")
         {
             if (other.tag == "Player")
-            {
-                
+            {                
 				endCol.curiositySwitch = true;
-                Destroy(GameObject.FindWithTag("FloatingRock"));
-                Destroy(this.gameObject);
-               // AddBlur();
-                StartCoroutine(StopMove());                
+                Destroy(GameObject.FindWithTag("FloatingRock"));                
+                AddBlur();
+                yield return new WaitForSeconds(2);                               
                 colorchange.rend.sharedMaterial = colorchange.ColorTexture[5];
-               // RemoveBlur();
+                yield return new WaitForSeconds(1);
+                RemoveBlur();
+                Destroy(this.gameObject);
+
                 
             }
         }
@@ -63,9 +61,11 @@ public class CheckPoints : MonoBehaviour {
             {
 				endCol.orderSwitch = true;
                 Destroy(GameObject.FindWithTag("Cave1"));
-                
-                colorchange.rend.sharedMaterial = colorchange.ColorTexture[1]; //Kleuren
-                //Add Text
+                AddBlur();
+                yield return new WaitForSeconds(2);
+                colorchange.rend.sharedMaterial = colorchange.ColorTexture[1];
+                yield return new WaitForSeconds(1);
+                RemoveBlur();
                 Destroy(this.gameObject);
             }
         }
@@ -76,9 +76,11 @@ public class CheckPoints : MonoBehaviour {
             {
 				endCol.perceptionSwitch = true;
                 Destroy(GameObject.FindWithTag("Path"));
-
-                colorchange.rend.sharedMaterial = colorchange.ColorTexture[2]; //Kleur
-                //Add Text
+                AddBlur();
+                yield return new WaitForSeconds(2);
+                colorchange.rend.sharedMaterial = colorchange.ColorTexture[2];
+                yield return new WaitForSeconds(1);
+                RemoveBlur();
                 Destroy(this.gameObject);
             }
         }
@@ -89,9 +91,11 @@ public class CheckPoints : MonoBehaviour {
             {
 				endCol.intelligenceSwitch = true;
                 Destroy(GameObject.FindWithTag("Invisible"));
-
-                colorchange.rend.sharedMaterial = colorchange.ColorTexture[3]; //Kleur
-                //Add Text
+                AddBlur();
+                yield return new WaitForSeconds(2);
+                colorchange.rend.sharedMaterial = colorchange.ColorTexture[3];
+                yield return new WaitForSeconds(1);
+                RemoveBlur();
                 Destroy(this.gameObject);
             }
         }
@@ -102,9 +106,11 @@ public class CheckPoints : MonoBehaviour {
             {
 				endCol.safetySwitch = true;
                 Destroy(GameObject.FindWithTag("Cave2Choice2"));
-
-                colorchange.rend.sharedMaterial = colorchange.ColorTexture[4]; //Kleur
-                //Add Text
+                AddBlur();
+                yield return new WaitForSeconds(2);
+                colorchange.rend.sharedMaterial = colorchange.ColorTexture[4];
+                yield return new WaitForSeconds(1);
+                RemoveBlur();
                 Destroy(this.gameObject);
             }
         }
@@ -115,9 +121,11 @@ public class CheckPoints : MonoBehaviour {
             {
 				endCol.dangerSwitch = true;
                 Destroy(GameObject.FindWithTag("Cave2Choice1"));
-
-                colorchange.rend.sharedMaterial = colorchange.ColorTexture[5]; //Kleur
-                //Add Text
+                AddBlur();
+                yield return new WaitForSeconds(2);
+                colorchange.rend.sharedMaterial = colorchange.ColorTexture[5];
+                yield return new WaitForSeconds(1);
+                RemoveBlur();              
                 Destroy(this.gameObject);
             }
         }
@@ -129,8 +137,11 @@ public class CheckPoints : MonoBehaviour {
 				endCol.bearSwitch = true;
                 Destroy(GameObject.FindWithTag("Stair2"));
                 Destroy(GameObject.FindWithTag("Stair3"));
-                colorchange.rend.sharedMaterial = colorchange.ColorTexture[6]; //Kleur
-                //Add Text
+                AddBlur();
+                yield return new WaitForSeconds(2);
+                colorchange.rend.sharedMaterial = colorchange.ColorTexture[6];
+                yield return new WaitForSeconds(1);
+                RemoveBlur();                
                 Destroy(this.gameObject);
             }
         }
@@ -142,9 +153,11 @@ public class CheckPoints : MonoBehaviour {
 				endCol.eagleSwitch = true;
                 Destroy(GameObject.FindWithTag("Stair1"));
                 Destroy(GameObject.FindWithTag("Stair3"));
-
-                colorchange.rend.sharedMaterial = colorchange.ColorTexture[7]; //Kleur
-                //Add Text
+                AddBlur();
+                yield return new WaitForSeconds(2);
+                colorchange.rend.sharedMaterial = colorchange.ColorTexture[7];
+                yield return new WaitForSeconds(1);
+                RemoveBlur();
                 Destroy(this.gameObject);
             }
         }
@@ -156,9 +169,11 @@ public class CheckPoints : MonoBehaviour {
 				endCol.rabbitSwitch = true;
                 Destroy(GameObject.FindWithTag("Stair1"));
                 Destroy(GameObject.FindWithTag("Stair2"));
-
-                colorchange.rend.sharedMaterial = colorchange.ColorTexture[8]; //Kleur
-                //Add Text
+                AddBlur();
+                yield return new WaitForSeconds(2);
+                colorchange.rend.sharedMaterial = colorchange.ColorTexture[8];
+                yield return new WaitForSeconds(1);
+                RemoveBlur();             
                 Destroy(this.gameObject);
             }
         }
