@@ -2,12 +2,41 @@
 using System.Collections;
 
 public class CheckPoints : MonoBehaviour {
+    [AddComponentMenu("Image Effects/Blur/Blur")]
     public Respawn respawn;
+    public GameObject BlurCam;
+    private GameObject Player;
     public ColorChange colorchange;
     private int index;
     private string ObjectTag;
+    private float waitTime = 20.0f;
 	[SerializeField]
 	public Ending endCol;
+
+    void Start() 
+    {
+        Player = GameObject.Find("Player");
+    }
+
+    void AddBlur() 
+    {
+        BlurCam.GetComponent<UnityStandardAssets.ImageEffects.Blur>().enabled = true;
+        Player.GetComponent<PlayerMovement>().enabled = false;
+        
+    }
+
+    void RemoveBlur() 
+    {
+        BlurCam.GetComponent<UnityStandardAssets.ImageEffects.Blur>().enabled = false;
+        Player.GetComponent<PlayerMovement>().enabled = true;
+    }
+
+    IEnumerator StopMove() 
+    {
+        print(Time.time);
+        yield return new WaitForSeconds(5f);
+        print(Time.time);
+    }
 
     void OnTriggerEnter(Collider other) 
     {
@@ -16,11 +45,15 @@ public class CheckPoints : MonoBehaviour {
         {
             if (other.tag == "Player")
             {
+                
 				endCol.curiositySwitch = true;
                 Destroy(GameObject.FindWithTag("FloatingRock"));
-                colorchange.rend.sharedMaterial = colorchange.ColorTexture[0]; //Kleur
-                //Add Text
                 Destroy(this.gameObject);
+               // AddBlur();
+                StartCoroutine(StopMove());                
+                colorchange.rend.sharedMaterial = colorchange.ColorTexture[5];
+               // RemoveBlur();
+                
             }
         }
 		//Order

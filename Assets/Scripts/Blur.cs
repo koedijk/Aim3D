@@ -7,15 +7,19 @@ namespace UnityStandardAssets.ImageEffects
     [AddComponentMenu("Image Effects/Blur/Blur")]
     public class Blur : MonoBehaviour
     {
+
+        private float timeLeft = 2f;
+        private bool decreaseTimer = false;
+
         /// Blur iterations - larger number means more blur.
         [Range(0,10)]
-        public int iterations = 3;
+        public float iterations = 0;
 
         /// Blur spread for each iteration. Lower values
         /// give better looking blur, but require more iterations to
         /// get large blurs. Value is usually between 0.5 and 1.0.
         [Range(0.0f,1.0f)]
-        public float blurSpread = 0.6f;
+        public float blurSpread = 0.0f;
 
 
         // --------------------------------------------------------
@@ -59,13 +63,11 @@ namespace UnityStandardAssets.ImageEffects
             }
         }
 
-        void Update() 
+        void FixedUpdate() 
         {
-            if(Input.GetKeyDown("k"))
-            {
-                
-            }
+            iterations += 0.5f;
         }
+
 
         // Performs one blur iteration.
         public void FourTapCone (RenderTexture source, RenderTexture dest, int iteration)
